@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>予定表</title>
+  <style>
+    /* 全体のフォントスタイル */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f9;
+      margin: 20px;
+    }
+
+    /* テーブルのスタイル */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* テーブルのヘッダー */
+    th {
+      padding: 10px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      border-bottom: 2px solid #ddd;
+    }
+
+    /* テーブルのセル */
+    td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* 偶数行に背景色を追加 */
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* セルのホバースタイル */
+    td:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* スクロールコンテナのスタイル */
+    .scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      max-width: 100%; /* 見える範囲に制限 */
+      margin-top: 20px;
+    }
+
+    /* ボタンのスタイル */
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* ボタンのホバースタイル */
+    button:hover {
+      background-color: #ddd;
+    }
+
+    /* 〇と×のスタイル */
+    button.〇 {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    button.× {
+      background-color: #FF5252;
+      color: white;
+    }
+
+    /* ボタンを初期状態に */
+    button.empty {
+      background-color: #f0f0f0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h2>11月の予定表</h2>
+
+<div class="scroll-container">
+  <table>
+    <thead>
+      <tr>
+        <th>参加者</th>
+        <!-- 日付を1か月分追加 -->
+        <th>11/1</th>
+        <th>11/2</th>
+        <th>11/3</th>
+        <th>11/4</th>
+        <th>11/5</th>
+        <th>11/6</th>
+        <th>11/7</th>
+        <th>11/8</th>
+        <th>11/9</th>
+        <th>11/10</th>
+        <th>11/11</th>
+        <th>11/12</th>
+        <th>11/13</th>
+        <th>11/14</th>
+        <th>11/15</th>
+        <th>11/16</th>
+        <th>11/17</th>
+        <th>11/18</th>
+        <th>11/19</th>
+        <th>11/20</th>
+        <th>11/21</th>
+        <th>11/22</th>
+        <th>11/23</th>
+        <th>11/24</th>
+        <th>11/25</th>
+        <th>11/26</th>
+        <th>11/27</th>
+        <th>11/28</th>
+        <th>11/29</th>
+        <!-- 必要に応じて日付を追加 -->
+        <th>11/30</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>エリック</td>
+        <!-- 日付ごとに空白セル -->
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+      <!-- 他のメンバー -->
+      <tr>
+        <td>たにー</td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+      <tr>
+        <td>ハウンド</td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+      <!-- 他のメンバーを追加 -->
+      <tr>
+        <td>くろあめ</td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+
+      <tr>
+        <td>やまと</td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+      <tr>
+        <td>さく坊</td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+        <td><button class="empty" onclick="toggleMark(this)">　</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function toggleMark(button) {
+    if (button.classList.contains('〇')) {
+      button.classList.remove('〇');
+      button.classList.add('×');
+      button.textContent = '×';
+    } else if (button.classList.contains('×')) {
+      button.classList.remove('×');
+      button.classList.add('empty');
+      button.textContent = '　';
+    } else {
+      button.classList.remove('empty');
+      button.classList.add('〇');
+      button.textContent = '〇';
+    }
+  }
+</script>
+
+</body>
+</html>
